@@ -23,25 +23,17 @@ namespace WeatherApiTester.ViewModel
 				}
 			}
 		}
-		public WeatherViewModel()
-		{
+		private readonly LocationService _locationService;
 
+		public WeatherViewModel(LocationService locationService)
+		{
+			_locationService = locationService;
 		}
 		async Task getWeatherDataFromApiAsync()
 		{
-		LocationService location = new LocationService();
-		PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-		status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-		status = await CheckAndRequestLocationPermission();
-		Location newLocation = await location.GetCurrentLocationAsync();
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {newLocation.ToString()} time";
-		else
-			CounterBtn.Text = $"Clicked time";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);*/
+			Location myCurrentLocation = await _locationService.GetCurrentLocationAsync();
 		}
+
+
 	}
 }
