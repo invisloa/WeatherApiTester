@@ -16,7 +16,7 @@
 
         <ShellContent Icon="settings.png"
             Title="Home"
-            ContentTemplate="{DataTemplate views:WeatherConfigurationView}"
+            ContentTemplate="{DataTemplate views:WeatherPage}"
             Route="MainPage" />
     </FlyoutItem>
     <FlyoutItem Title="SomeTitle2">
@@ -27,7 +27,7 @@
 
         <ShellContent Icon="settings.png"
             Title="d1"
-            ContentTemplate="{DataTemplate views:WeatherConfigurationView}"
+            ContentTemplate="{DataTemplate views:WeatherPage}"
             Route="MainPage" />
     </FlyoutItem>
 </Shell>
