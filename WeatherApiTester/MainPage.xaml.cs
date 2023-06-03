@@ -13,19 +13,25 @@ public partial class MainPage : ContentPage
 
 	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		LocationService location = new LocationService();
-		PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-		status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-		status = await CheckAndRequestLocationPermission();
-		Location newLocation = await location.GetCurrentLocationAsync();
-		count++;
+		/*		LocationService location = new LocationService();
+				PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+				status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+				status = await CheckAndRequestLocationPermission();
+				Location newLocation = await location.GetCurrentLocationAsync();
+				count++;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {newLocation.ToString()} time";
-		else
-			CounterBtn.Text = $"Clicked time";
+				if (count == 1)
+					CounterBtn.Text = $"Clicked {newLocation.ToString()} time";
+				else
+					CounterBtn.Text = $"Clicked time";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+				SemanticScreenReader.Announce(CounterBtn.Text);*/
+			ShellContent content = new ShellContent();
+			content.Title = "test";
+			content.FlyoutIcon = "dotnet_bot.svg";
+			content.Content = new MainPage();
+
+			AppShell.Current.Items.Add(content);
 	}
 	public async Task<PermissionStatus> CheckAndRequestLocationPermission()
 	{

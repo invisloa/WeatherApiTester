@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model
 {
-	public class WeatherData
+	public class WeatherModel
 	{
 		public int queryCost { get; set; }
 		public double latitude { get; set; }

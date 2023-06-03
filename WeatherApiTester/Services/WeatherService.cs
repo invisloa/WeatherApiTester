@@ -12,14 +12,14 @@ namespace WeatherApiTester.Services
 	{
 		private static readonly HttpClient client = new HttpClient();
 
-		public async Task<WeatherData> GetWeatherDataAsync()
+		public async Task<WeatherModel> GetWeatherDataAsync()
 		{
 			client.DefaultRequestHeaders.Accept.Clear();
 
 			var stringTask = client.GetStringAsync("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Rzeczni%C3%B3w/2023-06-02/2023-06-03?unitGroup=metric&include=current%2Cdays%2Chours%2Calerts%2Cevents&key=8RJ424NSS5MUNADQ775YEY2ZS&contentType=json");
 
 			var msg = await stringTask;
-			var weatherData = JsonSerializer.Deserialize<WeatherData>(msg);
+			var weatherData = JsonSerializer.Deserialize<WeatherModel>(msg);
 			return weatherData;
 		}
 	}

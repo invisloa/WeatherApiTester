@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using WeatherApiTester.Services;
 
 namespace WeatherApiTester;
 
@@ -14,7 +15,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
+		builder.Services.AddSingleton<LocationService>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

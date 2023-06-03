@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WeatherApiTester"
+    xmlns:views="clr-namespace:WeatherApiTester.Views"
+
     >
 
     <FlyoutItem Title="SomeTitle">
@@ -12,9 +14,20 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="Dashboart" />
 
-        <ShellContent Icon="appicon.svg"
+        <ShellContent Icon="settings.png"
             Title="Home"
+            ContentTemplate="{DataTemplate views:WeatherConfigurationView}"
+            Route="MainPage" />
+    </FlyoutItem>
+    <FlyoutItem Title="SomeTitle2">
+        <ShellContent Icon="appicon.svg"
+            Title="d2"
             ContentTemplate="{DataTemplate local:MainPage}"
+            Route="Dashboart" />
+
+        <ShellContent Icon="settings.png"
+            Title="d1"
+            ContentTemplate="{DataTemplate views:WeatherConfigurationView}"
             Route="MainPage" />
     </FlyoutItem>
 </Shell>
