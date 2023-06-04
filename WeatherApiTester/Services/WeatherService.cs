@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,26 @@ using WeatherApiTester.Model;
 
 namespace WeatherApiTester.Services
 {
-	public class WeatherService
+	public class WeatherService : IGetWeatherData
 	{
 		private static readonly HttpClient client = new HttpClient();
 
-		public async Task<WeatherModel> GetWeatherDataAsync()
+		public async Task<WeatherModel> GetWeather15DaysAsync()
 		{
 			client.DefaultRequestHeaders.Accept.Clear();
 
-			var stringTask = client.GetStringAsync("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Rzeczni%C3%B3w/2023-06-02/2023-06-03?unitGroup=metric&include=current%2Cdays%2Chours%2Calerts%2Cevents&key=8RJ424NSS5MUNADQ775YEY2ZS&contentType=json");
-
+			var stringTask = client.GetStringAsync("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Rzeczni%C3%B3w?unitGroup=metric&key=8RJ424NSS5MUNADQ775YEY2ZS&contentType=json");
+			
+			var options = new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true // ignore case when mapping properties
+			};
 			var msg = await stringTask;
-			var weatherData = JsonSerializer.Deserialize<WeatherModel>(msg);
-			return weatherData;
+			int x = 2;
+
+			WeatherModel myDeserializedClass = JsonConvert.DeserializeObject<WeatherModel>(msg);
+
+			return myDeserializedClass;
 		}
 	}
 }

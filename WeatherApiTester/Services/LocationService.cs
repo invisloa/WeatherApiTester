@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Services
 {
-	public class LocationService
+	public class LocationService : IGetCurrentLocation
 	{
 		public async Task<Location> GetCurrentLocationAsync()
 		{
@@ -42,6 +42,7 @@ namespace WeatherApiTester.Services
 
 			return null;
 		}
+
 		public async Task<PermissionStatus> CheckAndRequestLocationPermission()
 		{
 			PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();

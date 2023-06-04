@@ -23,15 +23,33 @@ namespace WeatherApiTester.ViewModel
 				}
 			}
 		}
-		private readonly LocationService _locationService;
+		private readonly IGetCurrentLocation _locationService;
 
-		public WeatherViewModel(LocationService locationService)
+		public WeatherViewModel(IGetCurrentLocation locationService)
 		{
 			_locationService = locationService;
 		}
+
 		async Task getWeatherDataFromApiAsync()
 		{
 			Location myCurrentLocation = await _locationService.GetCurrentLocationAsync();
+		}
+
+/*		void someMethod()
+		{
+			var weatherData = GetWeatherData();  // Retrieve from API
+			var userPreferences = GetUserPreferences(); // Retrieve from storage
+
+			foreach (var preference in userPreferences.OrderedPreferences)
+			{
+				var value = GetPropertyValue(weatherData, preference.PropertyName);
+				AddToView(preference.PropertyName, value);
+			}
+		}
+*/		private object GetPropertyValue(object obj, string propertyName)
+		{
+			var propertyInfo = obj.GetType().GetProperty(propertyName);
+			return propertyInfo?.GetValue(obj, null);
 		}
 
 

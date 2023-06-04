@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -13,6 +15,35 @@ namespace WeatherApiTester.ViewModel
 	class ConfigurationViewModel : BaseViewModel
 	{
 		private WeatherModel _weatherModel;
+
+		void testingGetProperties()
+		{
+
+			PropertyInfo[] properties = typeof(WeatherModel).GetProperties();
+			foreach (PropertyInfo property in properties)
+			{
+				Trace.WriteLine(property.Name);
+			}
+
+
+		}
+		public void addNewProfile()
+		{
+			var content = new ShellContent
+			{
+				Title = "test",
+				Content = new MainPage(),
+				Route = "221",
+			};
+
+			// Get the current Shell (should be your AppShell instance)
+			var currentShell = (AppShell)Shell.Current;
+
+			// Add the new content to the WeatherFlyout in AppShell
+			currentShell.WeatherFlyoutPublic.Items.Add(content);
+			Shell.Current.GoToAsync("//221");
+
+		}
 
 	}
 }

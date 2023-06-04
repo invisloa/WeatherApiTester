@@ -1,4 +1,7 @@
-﻿using WeatherApiTester.Services;
+﻿using System.Diagnostics;
+using System.Reflection;
+using WeatherApiTester.Model;
+using WeatherApiTester.Services;
 
 namespace WeatherApiTester;
 
@@ -10,21 +13,12 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		var content = new ShellContent
-		{
-			Title = "test",
-			Content = new MainPage(),
-			Route = "221",
-		};
-
-		// Get the current Shell (should be your AppShell instance)
-		var currentShell = (AppShell)Shell.Current;
-
-		// Add the new content to the WeatherFlyout in AppShell
-		currentShell.WeatherFlyoutPublic.Items.Add(content);
-		Shell.Current.GoToAsync("//221");
+		WeatherModel model;
+		WeatherService weatherService = new WeatherService();
+		model = await weatherService.GetWeather15DaysAsync();
+		int x = 2;
 	}
 }
 
