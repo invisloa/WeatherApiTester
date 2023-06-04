@@ -10,16 +10,21 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
-	private async void OnCounterClicked(object sender, EventArgs e)
+	private void OnCounterClicked(object sender, EventArgs e)
 	{
+		var content = new ShellContent
+		{
+			Title = "test",
+			Content = new MainPage(),
+			Route = "221",
+		};
 
-			ShellContent content = new ShellContent();
-			content.Title = "test";
-			content.FlyoutIcon = "dotnet_bot.svg";
-			content.Content = new MainPage();
+		// Get the current Shell (should be your AppShell instance)
+		var currentShell = (AppShell)Shell.Current;
 
-			AppShell.Current.Items.Add(content);
+		// Add the new content to the WeatherFlyout in AppShell
+		currentShell.WeatherFlyoutPublic.Items.Add(content);
+		Shell.Current.GoToAsync("//221");
 	}
 }
 

@@ -8,26 +8,14 @@
 
     >
 
-    <FlyoutItem Title="SomeTitle">
+    <FlyoutItem Title="SomeTitle" x:Name="WeatherFlyout">
         <ShellContent Icon="appicon.svg"
             Title="Dashboart"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="Dashboart" />
-
-        <ShellContent Icon="settings.png"
-            Title="Home"
-            ContentTemplate="{DataTemplate views:WeatherPage}"
-            Route="MainPage" />
-    </FlyoutItem>
-    <FlyoutItem Title="SomeTitle2">
         <ShellContent Icon="appicon.svg"
-            Title="d2"
+            Title="Dashboar22t"
             ContentTemplate="{DataTemplate local:MainPage}"
-            Route="Dashboart" />
-
-        <ShellContent Icon="settings.png"
-            Title="d1"
-            ContentTemplate="{DataTemplate views:WeatherPage}"
-            Route="MainPage" />
+            Route="Dashboa22rt" />
     </FlyoutItem>
 </Shell>
