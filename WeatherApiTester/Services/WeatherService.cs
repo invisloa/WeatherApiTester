@@ -17,7 +17,7 @@ namespace WeatherApiTester.Services
 		{
 			client.DefaultRequestHeaders.Accept.Clear();
 
-			var stringTask = client.GetStringAsync("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Rzeczni%C3%B3w?unitGroup=metric&key=8RJ424NSS5MUNADQ775YEY2ZS&contentType=json");
+			var stringTask = client.GetStringAsync("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Rzeczni%C3%B3w/today?unitGroup=metric&key=8RJ424NSS5MUNADQ775YEY2ZS&contentType=json");
 			
 			var options = new JsonSerializerOptions
 			{
