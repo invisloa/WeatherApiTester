@@ -13,7 +13,7 @@ namespace WeatherApiTester.Services
 	{
 		private static readonly HttpClient client = new HttpClient();
 
-		public async Task<WeatherModelVisualCrossing> GetWeather15DaysAsync()
+		public async Task<IWeatherModel> GetWeather15DaysAsync()
 		{
 			client.DefaultRequestHeaders.Accept.Clear();
 
@@ -26,7 +26,7 @@ namespace WeatherApiTester.Services
 			var msg = await stringTask;
 			int x = 2;
 
-			WeatherModelVisualCrossing myDeserializedClass = JsonConvert.DeserializeObject<WeatherModelVisualCrossing>(msg);
+			IWeatherModel myDeserializedClass = JsonConvert.DeserializeObject<IWeatherModel>(msg);
 
 			return myDeserializedClass;
 		}

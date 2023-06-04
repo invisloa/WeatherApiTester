@@ -15,7 +15,7 @@ public partial class MainPage : ContentPage
 	}
 	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		WeatherModelVisualCrossing model;
+		IWeatherModel model;
 		WeatherServiceVisualCrossing weatherService = new WeatherServiceVisualCrossing();
 		model = await weatherService.GetWeather15DaysAsync();
 		int x = 2;

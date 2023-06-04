@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model
 {
-	internal class IWeatherModel
+	public interface IWeatherModel
 	{
 	}
 }

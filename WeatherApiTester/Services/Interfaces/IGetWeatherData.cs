@@ -9,7 +9,7 @@ namespace WeatherApiTester.Services
 {
     public interface IGetWeatherData
     {
-		public Task<WeatherModelVisualCrossing> GetWeather15DaysAsync();
+		public Task<IWeatherModel> GetWeather15DaysAsync();
 
 
 	}
