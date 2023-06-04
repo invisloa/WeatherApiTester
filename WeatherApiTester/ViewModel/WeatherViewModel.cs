@@ -11,8 +11,8 @@ namespace WeatherApiTester.ViewModel
 {
 	public partial class WeatherViewModel : ObservableObject
 	{
- 		private WeatherModel _weatherData;
-		public WeatherModel WeatherData 
+ 		private WeatherModelVisualCrossing _weatherData;
+		public WeatherModelVisualCrossing WeatherData 
 		{ get => _weatherData;
 			set
 			{

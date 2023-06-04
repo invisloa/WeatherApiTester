@@ -9,11 +9,11 @@ using WeatherApiTester.Model;
 
 namespace WeatherApiTester.Services
 {
-	public class WeatherService : IGetWeatherData
+	public class WeatherServiceVisualCrossing : IGetWeatherData
 	{
 		private static readonly HttpClient client = new HttpClient();
 
-		public async Task<WeatherModel> GetWeather15DaysAsync()
+		public async Task<WeatherModelVisualCrossing> GetWeather15DaysAsync()
 		{
 			client.DefaultRequestHeaders.Accept.Clear();
 
@@ -26,7 +26,7 @@ namespace WeatherApiTester.Services
 			var msg = await stringTask;
 			int x = 2;
 
-			WeatherModel myDeserializedClass = JsonConvert.DeserializeObject<WeatherModel>(msg);
+			WeatherModelVisualCrossing myDeserializedClass = JsonConvert.DeserializeObject<WeatherModelVisualCrossing>(msg);
 
 			return myDeserializedClass;
 		}

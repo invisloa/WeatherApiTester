@@ -17,7 +17,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<IGetCurrentLocation, LocationService>();
-		builder.Services.AddSingleton<IGetWeatherData, WeatherService>();
+		builder.Services.AddSingleton<IGetWeatherData, WeatherServiceVisualCrossing>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

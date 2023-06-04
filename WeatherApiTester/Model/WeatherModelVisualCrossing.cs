@@ -146,7 +146,7 @@ namespace WeatherApiTester.Model
 		public string source { get; set; }
 	}
 
-	public class WeatherModel
+	public class WeatherModelVisualCrossing
 	{
 		public int queryCost { get; set; }
 		public double latitude { get; set; }
