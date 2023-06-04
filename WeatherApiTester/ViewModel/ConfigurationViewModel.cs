@@ -7,12 +7,12 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WeatherApiTester.Model;
+using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.ViewModel;
 
 namespace WeatherApiTester.ViewModel
 {
-	class ConfigurationViewModel : BaseViewModel
+    class ConfigurationViewModel : BaseViewModel
 	{
 		private IWeatherModel _weatherModel;
 

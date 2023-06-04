@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherApiTester.Model
+namespace WeatherApiTester.Model.WeatherApiModels
 {
-	public interface IWeatherModel
-	{
-	}
+    public interface IWeatherModel
+    {
+    }
 }

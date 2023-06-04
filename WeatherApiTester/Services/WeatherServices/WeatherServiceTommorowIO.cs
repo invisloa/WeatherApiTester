@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WeatherApiTester.Model;
+using WeatherApiTester.Model.WeatherApiModels;
+using WeatherApiTester.Model.WeatherApiModels.TommorowIO;
 
 namespace WeatherApiTester.Services.WeatherServices
 {
-	public class WeatherServiceTommorowIO : IGetWeatherData
+    public class WeatherServiceTommorowIO : IGetWeatherData
 	{
 		private static readonly HttpClient client = new HttpClient();
 		string _myApiKey = "Cj66O8OLTih8hPqA7AOKfevJuX11N1hp";

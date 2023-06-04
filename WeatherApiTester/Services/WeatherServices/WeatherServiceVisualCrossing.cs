@@ -5,15 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WeatherApiTester.Model;
+using WeatherApiTester.Model.WeatherApiModels;
 
 namespace WeatherApiTester.Services.WeatherServices
 {
     public class WeatherServiceVisualCrossing : IGetWeatherData
     {
         private static readonly HttpClient client = new HttpClient();
-
-
 		public async Task<IWeatherModel> GetWeatherForecastAsync()
         {
             client.DefaultRequestHeaders.Accept.Clear();

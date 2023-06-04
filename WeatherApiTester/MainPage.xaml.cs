@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using WeatherApiTester.Model;
+using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Services;
 using WeatherApiTester.Services.WeatherServices;
 
