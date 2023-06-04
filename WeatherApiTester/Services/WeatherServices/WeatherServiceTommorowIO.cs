@@ -45,19 +45,71 @@ namespace WeatherApiTester.Services.WeatherServices
 			}
 		}
 
-		public async Task<IWeatherModel> GetWeatherForecastAsync()
+		public async Task<IWeatherModel> GetWeatherForecastDailyAsync()
 		{
-			throw new NotImplementedException();
+			client.DefaultRequestHeaders.Accept.Clear();
+			client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+			try
+			{
+				var uri = new Uri($"https://api.tomorrow.io/v4/weather/forecast?location={_location}&timesteps=1d&apikey={_myApiKey}");
+
+				HttpResponseMessage response = await client.GetAsync(uri);
+				if (response.IsSuccessStatusCode)
+				{
+					string responseBody = await response.Content.ReadAsStringAsync();
+
+					IWeatherModel myDeserializedClass = JsonConvert.DeserializeObject<WeatherModelTommorowIODailyForecast>(responseBody);
+
+					return myDeserializedClass;
+				}
+				else
+				{
+					throw new Exception($"Error: {response.StatusCode}");
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Exception: {ex.Message}");
+			}
+
 		}
 
-		public Task<IWeatherModel> GetWeatherHistoricAsync()
+		public async Task<IWeatherModel> GetWeatherHistoricAsync()
 		{
 			throw new NotImplementedException();
+
 		}
 
-		public Task<IWeatherModel> GetWeatherHourlyAsync()
+		public async Task<IWeatherModel> GetWeatherForecastHourlyAsync()
 		{
-			throw new NotImplementedException();
+			client.DefaultRequestHeaders.Accept.Clear();
+			client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+			try
+			{
+				var uri = new Uri($"https://api.tomorrow.io/v4/weather/forecast?location={_location}&timesteps=1h&apikey={_myApiKey}");
+
+				HttpResponseMessage response = await client.GetAsync(uri);
+				if (response.IsSuccessStatusCode)
+				{
+					string responseBody = await response.Content.ReadAsStringAsync();
+
+					IWeatherModel myDeserializedClass = JsonConvert.DeserializeObject<WeatherModelTommorowIOHourlyForecast>(responseBody);
+
+					return myDeserializedClass;
+				}
+				else
+				{
+					throw new Exception($"Error: {response.StatusCode}");
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Exception: {ex.Message}");
+			}
 		}
+
+
 	}
 }

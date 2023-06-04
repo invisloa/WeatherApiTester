@@ -8,12 +8,11 @@ using WeatherApiTester.Model.WeatherApiModels;
 namespace WeatherApiTester.Services
 {
     public interface IGetWeatherData
-    {
-		public Task<IWeatherModel> GetWeatherForecastAsync();
+	{
+		public Task<IWeatherModel> GetWeatherForecastDailyAsync();
+		public Task<IWeatherModel> GetWeatherForecastHourlyAsync();
 		public Task<IWeatherModel> GetWeatherCurrentAsync();
-		public Task<IWeatherModel> GetWeatherHourlyAsync();
 		public Task<IWeatherModel> GetWeatherHistoricAsync();
-
 
 
 	}

@@ -12,7 +12,7 @@ namespace WeatherApiTester.Services.WeatherServices
     public class WeatherServiceVisualCrossing : IGetWeatherData
     {
         private static readonly HttpClient client = new HttpClient();
-		public async Task<IWeatherModel> GetWeatherForecastAsync()
+		public async Task<IWeatherModel> GetWeatherForecastHourlyAsync()
         {
             client.DefaultRequestHeaders.Accept.Clear();
 
@@ -44,5 +44,9 @@ namespace WeatherApiTester.Services.WeatherServices
 			throw new NotImplementedException();
 		}
 
+		public Task<IWeatherModel> GetWeatherForecastDailyAsync()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
