@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using WeatherApiTester.Services;
+using WeatherApiTester.Services.WeatherServices;
 
 namespace WeatherApiTester;
 

@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApiTester.Model;
 using WeatherApiTester.Services;
+using Location = Microsoft.Maui.Devices.Sensors.Location;
 
 namespace WeatherApiTester.ViewModel
 {
 	public partial class WeatherViewModel : ObservableObject
 	{
- 		private WeatherModelVisualCrossing _weatherData;
-		public WeatherModelVisualCrossing WeatherData 
+ 		private IWeatherModel _weatherData;
+		public IWeatherModel WeatherData 
 		{ get => _weatherData;
 			set
 			{
