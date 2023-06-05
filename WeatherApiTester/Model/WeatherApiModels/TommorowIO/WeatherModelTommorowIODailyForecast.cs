@@ -28,7 +28,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double cloudBaseMin { get; set; }
 			public double cloudCeilingAvg { get; set; }
 			public double cloudCeilingMax { get; set; }
-			public int cloudCeilingMin { get; set; }
+			public double cloudCeilingMin { get; set; }
 			public double cloudCoverAvg { get; set; }
 			public double cloudCoverMax { get; set; }
 			public double cloudCoverMin { get; set; }
@@ -37,61 +37,61 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double dewPointMin { get; set; }
 			public double evapotranspirationAvg { get; set; }
 			public double evapotranspirationMax { get; set; }
-			public int evapotranspirationMin { get; set; }
+			public double evapotranspirationMin { get; set; }
 			public double evapotranspirationSum { get; set; }
-			public int freezingRainIntensityAvg { get; set; }
-			public int freezingRainIntensityMax { get; set; }
-			public int freezingRainIntensityMin { get; set; }
+			public double freezingRainIntensityAvg { get; set; }
+			public double freezingRainIntensityMax { get; set; }
+			public double freezingRainIntensityMin { get; set; }
 			public double humidityAvg { get; set; }
 			public double humidityMax { get; set; }
 			public double humidityMin { get; set; }
-			public int iceAccumulationAvg { get; set; }
-			public int iceAccumulationLweAvg { get; set; }
-			public int iceAccumulationLweMax { get; set; }
-			public int iceAccumulationLweMin { get; set; }
-			public int iceAccumulationLweSum { get; set; }
-			public int iceAccumulationMax { get; set; }
-			public int iceAccumulationMin { get; set; }
-			public int iceAccumulationSum { get; set; }
+			public double iceAccumulationAvg { get; set; }
+			public double iceAccumulationLweAvg { get; set; }
+			public double iceAccumulationLweMax { get; set; }
+			public double iceAccumulationLweMin { get; set; }
+			public double iceAccumulationLweSum { get; set; }
+			public double iceAccumulationMax { get; set; }
+			public double iceAccumulationMin { get; set; }
+			public double iceAccumulationSum { get; set; }
 			public DateTime moonriseTime { get; set; }
 			public DateTime moonsetTime { get; set; }
 			public double precipitationProbabilityAvg { get; set; }
-			public int precipitationProbabilityMax { get; set; }
-			public int precipitationProbabilityMin { get; set; }
+			public double precipitationProbabilityMax { get; set; }
+			public double precipitationProbabilityMin { get; set; }
 			public double pressureSurfaceLevelAvg { get; set; }
 			public double pressureSurfaceLevelMax { get; set; }
 			public double pressureSurfaceLevelMin { get; set; }
 			public double rainAccumulationAvg { get; set; }
 			public double rainAccumulationLweAvg { get; set; }
 			public double rainAccumulationLweMax { get; set; }
-			public int rainAccumulationLweMin { get; set; }
+			public double rainAccumulationLweMin { get; set; }
 			public double rainAccumulationMax { get; set; }
-			public int rainAccumulationMin { get; set; }
+			public double rainAccumulationMin { get; set; }
 			public double rainAccumulationSum { get; set; }
 			public double rainIntensityAvg { get; set; }
 			public double rainIntensityMax { get; set; }
-			public int rainIntensityMin { get; set; }
-			public int sleetAccumulationAvg { get; set; }
-			public int sleetAccumulationLweAvg { get; set; }
-			public int sleetAccumulationLweMax { get; set; }
-			public int sleetAccumulationLweMin { get; set; }
-			public int sleetAccumulationLweSum { get; set; }
-			public int sleetAccumulationMax { get; set; }
-			public int sleetAccumulationMin { get; set; }
-			public int sleetIntensityAvg { get; set; }
-			public int sleetIntensityMax { get; set; }
-			public int sleetIntensityMin { get; set; }
-			public int snowAccumulationAvg { get; set; }
-			public int snowAccumulationLweAvg { get; set; }
-			public int snowAccumulationLweMax { get; set; }
-			public int snowAccumulationLweMin { get; set; }
-			public int snowAccumulationLweSum { get; set; }
-			public int snowAccumulationMax { get; set; }
-			public int snowAccumulationMin { get; set; }
-			public int snowAccumulationSum { get; set; }
-			public int snowIntensityAvg { get; set; }
-			public int snowIntensityMax { get; set; }
-			public int snowIntensityMin { get; set; }
+			public double rainIntensityMin { get; set; }
+			public double sleetAccumulationAvg { get; set; }
+			public double sleetAccumulationLweAvg { get; set; }
+			public double sleetAccumulationLweMax { get; set; }
+			public double sleetAccumulationLweMin { get; set; }
+			public double sleetAccumulationLweSum { get; set; }
+			public double sleetAccumulationMax { get; set; }
+			public double sleetAccumulationMin { get; set; }
+			public double sleetIntensityAvg { get; set; }
+			public double sleetIntensityMax { get; set; }
+			public double sleetIntensityMin { get; set; }
+			public double snowAccumulationAvg { get; set; }
+			public double snowAccumulationLweAvg { get; set; }
+			public double snowAccumulationLweMax { get; set; }
+			public double snowAccumulationLweMin { get; set; }
+			public double snowAccumulationLweSum { get; set; }
+			public double snowAccumulationMax { get; set; }
+			public double snowAccumulationMin { get; set; }
+			public double snowAccumulationSum { get; set; }
+			public double snowIntensityAvg { get; set; }
+			public double snowIntensityMax { get; set; }
+			public double snowIntensityMin { get; set; }
 			public DateTime sunriseTime { get; set; }
 			public DateTime sunsetTime { get; set; }
 			public double temperatureApparentAvg { get; set; }
@@ -100,17 +100,17 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double temperatureAvg { get; set; }
 			public double temperatureMax { get; set; }
 			public double temperatureMin { get; set; }
-			public int uvHealthConcernAvg { get; set; }
-			public int uvHealthConcernMax { get; set; }
-			public int uvHealthConcernMin { get; set; }
-			public int uvIndexAvg { get; set; }
-			public int uvIndexMax { get; set; }
-			public int uvIndexMin { get; set; }
+			public double uvHealthConcernAvg { get; set; }
+			public double uvHealthConcernMax { get; set; }
+			public double uvHealthConcernMin { get; set; }
+			public double uvIndexAvg { get; set; }
+			public double uvIndexMax { get; set; }
+			public double uvIndexMin { get; set; }
 			public double visibilityAvg { get; set; }
 			public double visibilityMax { get; set; }
 			public double visibilityMin { get; set; }
-			public int weatherCodeMax { get; set; }
-			public int weatherCodeMin { get; set; }
+			public double weatherCodeMax { get; set; }
+			public double weatherCodeMin { get; set; }
 			public double windDirectionAvg { get; set; }
 			public double windGustAvg { get; set; }
 			public double windGustMax { get; set; }

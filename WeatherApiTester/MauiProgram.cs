@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using WeatherApiTester.Services;
 using WeatherApiTester.Services.WeatherServices;
+using WeatherApiTester.ViewModel;
 
 namespace WeatherApiTester;
 
@@ -18,6 +19,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<IGetCurrentLocation, LocationService>();
+		builder.Services.AddSingleton<WeatherViewModel>();
 		builder.Services.AddSingleton<IGetWeatherData, WeatherServiceVisualCrossing>();
 #if DEBUG
 		builder.Logging.AddDebug();

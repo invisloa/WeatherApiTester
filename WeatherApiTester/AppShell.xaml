@@ -11,7 +11,7 @@
     <FlyoutItem Title="SomeTitle" x:Name="WeatherFlyout">
         <ShellContent Icon="appicon.svg"
             Title="Dashboart"
-            ContentTemplate="{DataTemplate local:MainPage}"
+            ContentTemplate="{DataTemplate views:WeatherPage}"
             Route="Dashboart" />
         <ShellContent Icon="appicon.svg"
             Title="Dashboar22t"

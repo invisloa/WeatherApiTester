@@ -5,8 +5,18 @@
              Title="WeatherPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome WeatherPage"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button 
+            Text="Get Daily Weather"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Command="{Binding GetDailyWeatherCommand}" />
+        <Button 
+            Text="Get Current Weather"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Command="{Binding GetCurrentWeatherCommand}" />
     </VerticalStackLayout>
 </ContentPage>
