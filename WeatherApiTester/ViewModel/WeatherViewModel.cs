@@ -2,12 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApiTester.Helpers;
 using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Services;
+using Windows.Gaming.Preview.GamesEnumeration;
 using Location = Microsoft.Maui.Devices.Sensors.Location;
 
 namespace WeatherApiTester.ViewModel
@@ -30,12 +32,27 @@ namespace WeatherApiTester.ViewModel
 				}
 			}
 		}
+		public ObservableCollection<string> SomeList { get; set; }
 
 		public WeatherViewModel()
 		{
 			_locationService = ServiceHelper.GetService<IGetCurrentLocation>();
 			GetDailyWeatherCommand = new RelayCommand(GetDailyWeather);
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
+			SomeList = new ObservableCollection<string>()
+			{
+				"asdzxc",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asdzxca",
+				"asd"
+			};
+
 		}
 		private async void GetDailyWeather()
 		{

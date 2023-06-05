@@ -18,5 +18,23 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Command="{Binding GetCurrentWeatherCommand}" />
+        <ListView ItemsSource="{Binding SomeList}" BackgroundColor="Aquamarine" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="AliceBlue">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>    
     </VerticalStackLayout>
 </ContentPage>
