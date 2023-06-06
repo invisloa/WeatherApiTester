@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApiTester.Helpers;
 using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Services;
-using Windows.Gaming.Preview.GamesEnumeration;
 using Location = Microsoft.Maui.Devices.Sensors.Location;
 
 namespace WeatherApiTester.ViewModel
@@ -17,19 +17,45 @@ namespace WeatherApiTester.ViewModel
     public partial class WeatherViewModel : BaseViewModel
 	{
  		private IWeatherModel _weatherData;
+		private Dictionary<string, string> _weatherProperties = new Dictionary<string, string>();
 		IGetWeatherData data = Factory.CreateGetWeatherData;
 		private readonly IGetCurrentLocation _locationService;
 		public IRelayCommand GetDailyWeatherCommand { get; }
 		public IRelayCommand GetCurrentWeatherCommand { get; }
-		public IWeatherModel WeatherData 
-		{ get => _weatherData;
+
+		public IWeatherModel WeatherData
+		{
+			get => _weatherData;
 			set
 			{
-				if (_weatherData != value) 
+				if (_weatherData != value)
 				{
-				_weatherData = value;
-				OnPropertyChanged();
+					_weatherData = value;
+					GetWeatherPropertiesToDictionary();
+					OnPropertyChanged();
 				}
+			}
+		}
+		public Dictionary<string, string> WeatherPropertiesDictionary
+		{
+			get => _weatherProperties;
+			set
+			{
+				if (_weatherProperties != value)
+				{
+					_weatherProperties = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+		
+		private void GetWeatherPropertiesToDictionary()
+		{
+			foreach (PropertyInfo prop in _weatherData.GetType().GetProperties())
+			{
+				object value = prop.GetValue(_weatherData, null);
+				string valueStr = value != null ? value.ToString() : null;
+				WeatherPropertiesDictionary.Add(prop.Name, valueStr);
 			}
 		}
 		public ObservableCollection<string> SomeList { get; set; }
@@ -39,31 +65,16 @@ namespace WeatherApiTester.ViewModel
 			_locationService = ServiceHelper.GetService<IGetCurrentLocation>();
 			GetDailyWeatherCommand = new RelayCommand(GetDailyWeather);
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
-			SomeList = new ObservableCollection<string>()
-			{
-				"asdzxc",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asdzxca",
-				"asd"
-			};
 
 		}
 		private async void GetDailyWeather()
 		{
 			WeatherData = await data.GetWeatherForecastDailyAsync();
-			int x = 2;
 		}
 
 		private async void GetCurrentWeather()
 		{
 			WeatherData = await data.GetWeatherForecastHourlyAsync();
-			int x = 2;
 		}
 
 

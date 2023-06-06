@@ -18,23 +18,37 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Command="{Binding GetCurrentWeatherCommand}" />
-        <ListView ItemsSource="{Binding SomeList}" BackgroundColor="Aquamarine" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
                         <Frame BackgroundColor="AliceBlue">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2.5*"/>
                                     <ColumnDefinition Width="2.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Margin="10,0,10,0" Text="Nazwa" VerticalOptions="Center" Grid.Column="0"/>
+                                <Label Margin="10,0,10,0" Text="Pomiar" VerticalOptions="Center" Grid.Column="1"/>
+                                <BoxView BackgroundColor="DarkGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                <BoxView BackgroundColor="DarkGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                            </Grid>
+                        </Frame>
+        <ListView ItemsSource="{Binding WeatherPropertiesDictionary}" BackgroundColor="Aquamarine" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2.5*"/>
                                     <ColumnDefinition Width="2.5*"/>
                                 </Grid.ColumnDefinitions>
+                                <Label Margin="10,0,10,0" Text="{Binding Key}" VerticalOptions="Center" Grid.Column="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding Value}" VerticalOptions="Center" Grid.Column="1"/>
+
                             </Grid>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>    
+        </ListView>
+
     </VerticalStackLayout>
 </ContentPage>
