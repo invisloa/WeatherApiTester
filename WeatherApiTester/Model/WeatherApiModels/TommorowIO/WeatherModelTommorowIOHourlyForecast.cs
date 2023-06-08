@@ -10,11 +10,19 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 	{
 		public Timelines timelines { get; set; }
 		public Location location { get; set; }
+		// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
 		public class Hourly
 		{
 			public DateTime time { get; set; }
 			public Values values { get; set; }
 		}
+
+
+		public class Timelines
+		{
+			public List<Hourly> hourly { get; set; }
+		}
+
 		public class Values
 		{
 			public double? cloudBase { get; set; }
@@ -28,9 +36,9 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public int iceAccumulationLwe { get; set; }
 			public int precipitationProbability { get; set; }
 			public double pressureSurfaceLevel { get; set; }
-			public double rainAccumulation { get; set; }
-			public double rainAccumulationLwe { get; set; }
-			public double rainIntensity { get; set; }
+			public int rainAccumulation { get; set; }
+			public int rainAccumulationLwe { get; set; }
+			public int rainIntensity { get; set; }
 			public int sleetAccumulation { get; set; }
 			public int sleetAccumulationLwe { get; set; }
 			public int sleetIntensity { get; set; }
@@ -49,9 +57,5 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double windSpeed { get; set; }
 		}
 
-		public class Timelines
-		{
-			public List<Hourly> hourly { get; set; }
-		}
 	}
 }
