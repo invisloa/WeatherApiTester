@@ -12,11 +12,9 @@ using WeatherApiTester.ViewModel.TommoroIO;
 
 namespace WeatherApiTester.ViewModel
 {
-    class WeatherCurrentTIO_VM
-    {
+    class WeatherCurrentTIO_VM : BaseWeatherViewModel
+	{
 
-		public partial class WeatherViewModel : BaseWeatherViewModel
-		{
 			public IRelayCommand GetCurrentWeatherCommand { get; }
 			public IWeatherModel WeatherData
 			{
@@ -50,7 +48,7 @@ namespace WeatherApiTester.ViewModel
 			}
 			public ObservableCollection<string> SomeList { get; set; }
 
-			public WeatherViewModel()
+			public WeatherCurrentTIO_VM()
 			{
 				GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
 
