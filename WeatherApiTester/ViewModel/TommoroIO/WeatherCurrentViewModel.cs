@@ -61,26 +61,6 @@ namespace WeatherApiTester.ViewModel
 			{
 				WeatherData = await data.GetWeatherCurrentAsync();
 			}
-
-
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 }
