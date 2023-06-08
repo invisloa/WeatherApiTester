@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Services;
 using WeatherApiTester.Services.Converters;
+using WeatherApiTester.ViewModel.TommoroIO;
 
 namespace WeatherApiTester.ViewModel
 {
-    class WeatherCurrentViewModel
+    class WeatherCurrentTIO_VM
     {
 
-		public partial class WeatherViewModel : BaseViewModel
+		public partial class WeatherViewModel : BaseWeatherViewModel
 		{
-			private Dictionary<string, string> _weatherProperties = new Dictionary<string, string>();
-			private IWeatherModel _weatherData;
-			IGetWeatherData data = Factory.CreateGetWeatherData;
 			public IRelayCommand GetCurrentWeatherCommand { get; }
 			public IWeatherModel WeatherData
 			{
