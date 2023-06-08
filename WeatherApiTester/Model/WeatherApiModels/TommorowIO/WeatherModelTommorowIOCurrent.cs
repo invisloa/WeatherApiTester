@@ -44,10 +44,10 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		public Dictionary<string, object> ExtractData(Data data)
 		{
 			var dataDict = new Dictionary<string, object>
-	{
-		{"time", data.time},
-		{"values", data.values}
-	};
+			{
+				{"time", data.time},
+				{"values", data.values}
+			};
 			return dataDict;
 		}
 

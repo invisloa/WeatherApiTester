@@ -23,10 +23,13 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 		public class Values
 		{
-			public double cloudBaseAvg { get; set; }
-			public double cloudBaseMax { get; set; }
-			public int cloudBaseMin { get; set; }
-			public double cloudCeilingAvg { get; set; }
+			public double temperatureApparentAvg { get; set; }
+			public double temperatureApparentMax { get; set; }
+			public double temperatureApparentMin { get; set; }
+			public double temperatureAvg { get; set; }
+			public double temperatureMax { get; set; }
+			public double temperatureMin { get; set; }
+
 			public double cloudCeilingMax { get; set; }
 			public int cloudCeilingMin { get; set; }
 			public double cloudCoverAvg { get; set; }
@@ -98,12 +101,6 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public int snowIntensityMin { get; set; }
 			public DateTime sunriseTime { get; set; }
 			public DateTime sunsetTime { get; set; }
-			public double temperatureApparentAvg { get; set; }
-			public double temperatureApparentMax { get; set; }
-			public double temperatureApparentMin { get; set; }
-			public double temperatureAvg { get; set; }
-			public double temperatureMax { get; set; }
-			public double temperatureMin { get; set; }
 			public int uvHealthConcernAvg { get; set; }
 			public int uvHealthConcernMax { get; set; }
 			public int uvHealthConcernMin { get; set; }
@@ -121,7 +118,57 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double windGustMin { get; set; }
 			public double windSpeedAvg { get; set; }
 			public double windSpeedMax { get; set; }
+
+			public double cloudBaseAvg { get; set; }
+			public double cloudBaseMax { get; set; }
+			public int cloudBaseMin { get; set; }
+			public double cloudCeilingAvg { get; set; }
 			public double windSpeedMin { get; set; }
+		}
+
+		public Dictionary<string, object> ExtractLocationFields()
+		{
+			var locationDict = new Dictionary<string, object>
+		{
+			{"lat", this.location.lat},
+			{"lon", this.location.lon},
+			{"name", this.location.name},
+			{"type", this.location.type}
+
+		};
+			return locationDict;
+		}
+		public Dictionary<string, object> ExtractValuesFields(Values values)
+		{
+			return GetPropertiesDictionary(values);
+		}
+
+		private Dictionary<string, object> GetPropertiesDictionary(object obj)
+		{
+			return obj.GetType().GetProperties().ToDictionary(
+				prop => prop.Name,
+				prop => prop.GetValue(obj, null)
+			);
+		}
+		public List<Dictionary<string, object>> ExtractTimelinesFields()
+		{
+			var timelinesList = new List<Dictionary<string, object>>();
+			foreach (var daily in this.timelines.daily)
+			{
+				var dailyDict = new Dictionary<string, object>
+			{
+				{"time", daily.time},
+				{"values", ExtractValuesFields(daily.values)}
+			};
+				timelinesList.Add(dailyDict);
+			}
+			return timelinesList;
 		}
 	}
 }
+
+
+
+
+/*
+*/
