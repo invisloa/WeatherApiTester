@@ -1,11 +1,12 @@
 ﻿
 
 #region current
-// Make viewmodels for every type of data
+// make at least one working weather view 
 #endregion
 
 
 #region highLater
+// Make viewmodels for every type of data
 
 #endregion
 

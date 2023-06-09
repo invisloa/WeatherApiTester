@@ -12,51 +12,50 @@ using WeatherApiTester.ViewModel.TommoroIO;
 
 namespace WeatherApiTester.ViewModel
 {
-    class WeatherCurrentTIO_VM : BaseWeatherViewModel
+	class WeatherCurrentTIO_VM : BaseWeatherViewModel
 	{
 
-			public IRelayCommand GetCurrentWeatherCommand { get; }
-			public IWeatherModel WeatherData
+		public IRelayCommand GetCurrentWeatherCommand { get; }
+		public IWeatherModel WeatherData
+		{
+			get => _weatherData;
+			set
 			{
-				get => _weatherData;
-				set
+				if (_weatherData != value)
 				{
-					if (_weatherData != value)
-					{
-						_weatherData = value;
-						GetWeatherPropertiesToDictionary();
-						OnPropertyChanged();
-					}
+					_weatherData = value;
+					GetWeatherPropertiesToDictionary();
+					OnPropertyChanged();
 				}
 			}
-			public Dictionary<string, string> WeatherPropertiesDictionary
+		}
+		public Dictionary<string, string> WeatherPropertiesDictionary
+		{
+			get => _weatherProperties;
+			set
 			{
-				get => _weatherProperties;
-				set
+				if (_weatherProperties != value)
 				{
-					if (_weatherProperties != value)
-					{
-						_weatherProperties = value;
-						OnPropertyChanged();
-					}
+					_weatherProperties = value;
+					OnPropertyChanged();
 				}
 			}
+		}
 
-			private void GetWeatherPropertiesToDictionary()
-			{
-				WeatherPropertiesDictionary = WeatherModelToDictionary.ObjectToDictionary(WeatherData, "");
-			}
-			public ObservableCollection<string> SomeList { get; set; }
+		private void GetWeatherPropertiesToDictionary()
+		{
+			WeatherPropertiesDictionary = WeatherModelToDictionary.ObjectToDictionary(WeatherData, "");
+		}
+		public ObservableCollection<string> SomeList { get; set; }
 
-			public WeatherCurrentTIO_VM()
-			{
-				GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
+		public WeatherCurrentTIO_VM()
+		{
+			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
 
-			}
-			private async void GetCurrentWeather()
-			{
-				WeatherData = await data.GetWeatherCurrentAsync();
-			}
+		}
+		private async void GetCurrentWeather()
+		{
+			WeatherData = await data.GetWeatherCurrentAsync();
 		}
 	}
 }

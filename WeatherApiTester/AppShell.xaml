@@ -17,5 +17,9 @@
             Title="Dashboar22t"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="Dashboa22rt" />
+        <ShellContent Icon="appicon.svg"
+            Title="Dashboar2"
+            ContentTemplate="{DataTemplate views:WeatherCurrent}"
+            Route="Dashboa2" />
     </FlyoutItem>
 </Shell>
