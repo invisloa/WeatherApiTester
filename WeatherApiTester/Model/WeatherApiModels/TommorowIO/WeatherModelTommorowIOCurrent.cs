@@ -54,12 +54,12 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		public Dictionary<string, object> ExtractLocation(Location location)
 		{
 			var locationDict = new Dictionary<string, object>
-	{
-		{"lat", location.lat},
-		{"lon", location.lon},
-		{"name", location.name},
-		{"type", location.type}
-	};
+			{
+			{"lat", location.lat},
+			{"lon", location.lon},
+			{"name", location.name},
+			{"type", location.type}
+		};
 			return locationDict;
 		}
 

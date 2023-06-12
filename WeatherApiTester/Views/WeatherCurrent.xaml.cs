@@ -4,6 +4,7 @@ public partial class WeatherCurrent : ContentPage
 {
 	public WeatherCurrent()
 	{
+		
 		InitializeComponent();
 	}
 }
