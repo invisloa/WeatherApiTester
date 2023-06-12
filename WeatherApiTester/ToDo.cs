@@ -2,6 +2,7 @@
 
 #region current
 // make at least one working weather view 
+// location=43.653480529785156,%20-79.9
 #endregion
 
 
