@@ -27,7 +27,7 @@ namespace WeatherApiTester.Services.WeatherServices
 			return new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}{parameters}");
 		}
 
-		private async Task<IWeatherModel> SendRequestAsync<T>(Uri uri)
+		private async Task<IWeatherCurrentModel> SendRequestAsync<T>(Uri uri)
 		{
 			HttpResponseMessage response = await client.GetAsync(uri);
 
@@ -40,22 +40,22 @@ namespace WeatherApiTester.Services.WeatherServices
 			return JsonConvert.DeserializeObject<WeatherModelTommorowIODailyForecast>(responseBody);
 		}
 
-		public Task<IWeatherModel> GetWeatherCurrentAsync()
+		public Task<IWeatherCurrentModel> GetWeatherCurrentAsync()
 		{
 			return SendRequestAsync<WeatherModelTommorowIOCurrent>(CreateUri("realtime"));
 		}
 
-		public Task<IWeatherModel> GetWeatherForecastDailyAsync()
+		public Task<IWeatherCurrentModel> GetWeatherForecastDailyAsync()
 		{
 			return SendRequestAsync<WeatherModelTommorowIODailyForecast>(CreateUri("forecast", "&timesteps=1d"));
 		}
 
-		public Task<IWeatherModel> GetWeatherForecastHourlyAsync()
+		public Task<IWeatherCurrentModel> GetWeatherForecastHourlyAsync()
 		{
 			return SendRequestAsync<WeatherModelTommorowIOHourlyForecast>(CreateUri("forecast", "&timesteps=1h"));
 		}
 
-		public Task<IWeatherModel> GetWeatherHistoricAsync()
+		public Task<IWeatherCurrentModel> GetWeatherHistoricAsync()
 		{
 			throw new NotImplementedException();
 		}

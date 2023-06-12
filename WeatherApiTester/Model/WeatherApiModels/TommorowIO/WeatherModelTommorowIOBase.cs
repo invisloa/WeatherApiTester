@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 {
-	public abstract class WeatherModelTommorowIOBase : IWeatherModel
+	public abstract class WeatherModelTommorowIOBase : IWeatherCurrentModel
 	{
 		public class Location
 		{

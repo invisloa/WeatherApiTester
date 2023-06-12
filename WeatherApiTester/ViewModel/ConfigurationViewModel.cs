@@ -14,12 +14,12 @@ namespace WeatherApiTester.ViewModel
 {
     class ConfigurationViewModel : BaseViewModel
 	{
-		private IWeatherModel _weatherModel;
+		private IWeatherCurrentModel _weatherModel;
 
 		void testingGetProperties()
 		{
 
-			PropertyInfo[] properties = typeof(IWeatherModel).GetProperties();
+			PropertyInfo[] properties = typeof(IWeatherCurrentModel).GetProperties();
 			foreach (PropertyInfo property in properties)
 			{
 				Trace.WriteLine(property.Name);

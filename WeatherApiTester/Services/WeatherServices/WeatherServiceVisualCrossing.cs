@@ -12,7 +12,7 @@ namespace WeatherApiTester.Services.WeatherServices
     public class WeatherServiceVisualCrossing : IGetWeatherData
     {
         private static readonly HttpClient client = new HttpClient();
-		public async Task<IWeatherModel> GetWeatherForecastHourlyAsync()
+		public async Task<IWeatherCurrentModel> GetWeatherForecastHourlyAsync()
         {
             client.DefaultRequestHeaders.Accept.Clear();
 
@@ -25,26 +25,26 @@ namespace WeatherApiTester.Services.WeatherServices
             var msg = await stringTask;
             int x = 2;
 
-            IWeatherModel myDeserializedClass = JsonConvert.DeserializeObject<IWeatherModel>(msg);
+            IWeatherCurrentModel myDeserializedClass = JsonConvert.DeserializeObject<IWeatherCurrentModel>(msg);
 
             return myDeserializedClass;
         }
 
-		public Task<IWeatherModel> GetWeatherHistoricAsync()
+		public Task<IWeatherCurrentModel> GetWeatherHistoricAsync()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<IWeatherModel> GetWeatherHourlyAsync()
+		public Task<IWeatherCurrentModel> GetWeatherHourlyAsync()
 		{
 			throw new NotImplementedException();
 		}
-		public Task<IWeatherModel> GetWeatherCurrentAsync()
+		public Task<IWeatherCurrentModel> GetWeatherCurrentAsync()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<IWeatherModel> GetWeatherForecastDailyAsync()
+		public Task<IWeatherCurrentModel> GetWeatherForecastDailyAsync()
 		{
 			throw new NotImplementedException();
 		}

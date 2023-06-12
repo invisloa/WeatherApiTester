@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model
 {
-	public class WeatherModelWeatherApi : IWeatherModel
+	public class WeatherModelWeatherApi : IWeatherCurrentModel
 	{
 		public Location location { get; set; }
 		public Current current { get; set; }

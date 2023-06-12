@@ -41,7 +41,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 
-		public Dictionary<string, object> ExtractData(Data data)
+		public Dictionary<string, object> ExtractData()
 		{
 			var dataDict = new Dictionary<string, object>
 			{
@@ -51,7 +51,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			return dataDict;
 		}
 
-		public Dictionary<string, object> ExtractLocation(Location location)
+		public Dictionary<string, object> ExtractLocation()
 		{
 			var locationDict = new Dictionary<string, object>
 			{
@@ -63,33 +63,32 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			return locationDict;
 		}
 
-		public Dictionary<string, object> ExtractValues(Values values)
+		public Dictionary<string, object> ExtractValues()
 		{
 			var valuesDict = new Dictionary<string, object>
 			{
-				{"cloudBase", values.cloudBase},
-				{"cloudCeiling", values.cloudCeiling},
-				{"cloudCover", values.cloudCover},
-				{"dewPoint", values.dewPoint},
-				{"freezingRainIntensity", values.freezingRainIntensity},
-				{"humidity", values.humidity},
-				{"precipitationProbability", values.precipitationProbability},
-				{"pressureSurfaceLevel", values.pressureSurfaceLevel},
-				{"rainIntensity", values.rainIntensity},
-				{"sleetIntensity", values.sleetIntensity},
-				{"snowIntensity", values.snowIntensity},
-				{"temperature", values.temperature},
-				{"temperatureApparent", values.temperatureApparent},
-				{"uvHealthConcern", values.uvHealthConcern},
-				{"uvIndex", values.uvIndex},
-				{"visibility", values.visibility},
-				{"weatherCode", values.weatherCode},
-				{"windDirection", values.windDirection},
-				{"windGust", values.windGust},
-				{"windSpeed", values.windSpeed}
+				{"cloudBase", data.values.cloudBase},
+				{"cloudCeiling", data.values.cloudCeiling},
+				{"cloudCover", data.values.cloudCover},
+				{"dewPoint", data.values.dewPoint},
+				{"freezingRainIntensity", data.values.freezingRainIntensity},
+				{"humidity", data.values.humidity},
+				{"precipitationProbability", data.values.precipitationProbability},
+				{"pressureSurfaceLevel", data.values.pressureSurfaceLevel},
+				{"rainIntensity", data.values.rainIntensity},
+				{"sleetIntensity", data.values.sleetIntensity},
+				{"snowIntensity", data.values.snowIntensity},
+				{"temperature", data.values.temperature},
+				{"temperatureApparent", data.values.temperatureApparent},
+				{"uvHealthConcern", data.values.uvHealthConcern},
+				{"uvIndex", data.values.uvIndex},
+				{"visibility", data.values.visibility},
+				{"weatherCode", data.values.weatherCode},
+				{"windDirection", data.values.windDirection},
+				{"windGust", data.values.windGust},
+				{"windSpeed", data.values.windSpeed}
 			};
 			return valuesDict;
 		}
-
 	}
 }

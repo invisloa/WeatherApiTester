@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model.WeatherApiModels
 {
-    public interface IWeatherModel
+    public interface IWeatherCurrentModel
     {
     }
 }

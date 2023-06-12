@@ -16,7 +16,7 @@ public partial class MainPage : ContentPage
 	}
 	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		IWeatherModel model ;
+		IWeatherCurrentModel model ;
 		IGetWeatherData data = Factory.CreateGetWeatherData;
 		model = await data.GetWeatherForecastHourlyAsync();
 		model = await data.GetWeatherForecastDailyAsync();

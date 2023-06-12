@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Services;
-using WeatherApiTester.Services.Converters;
 using WeatherApiTester.ViewModel.TommoroIO;
 
 namespace WeatherApiTester.ViewModel
@@ -16,7 +15,7 @@ namespace WeatherApiTester.ViewModel
 	{
 
 		public IRelayCommand GetCurrentWeatherCommand { get; }
-		public IWeatherModel WeatherData
+		public IWeatherCurrentModel WeatherData
 		{
 			get => _weatherData;
 			set
