@@ -10,7 +10,7 @@ using WeatherApiTester.Model.WeatherApiModels.TommorowIO;
 
 namespace WeatherApiTester.Services.WeatherServices
 {
-	public class WeatherServiceTommorowIO : IGetWeatherData
+	public class WeatherServiceTommorowIO : IGetWeatherDataSvc
 	{
 		private static readonly HttpClient client = new HttpClient();
 		private const string _myApiKey = "Cj66O8OLTih8hPqA7AOKfevJuX11N1hp";

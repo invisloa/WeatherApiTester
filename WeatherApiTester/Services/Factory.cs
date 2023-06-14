@@ -9,6 +9,6 @@ namespace WeatherApiTester.Services
 {
 	public static class Factory
 	{
-		public static IGetWeatherData CreateGetWeatherData => new WeatherServiceTommorowIO();
+		public static IGetWeatherDataSvc CreateGetWeatherData => new WeatherServiceTommorowIO();
 	}
 }

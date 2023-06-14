@@ -9,7 +9,7 @@ using WeatherApiTester.Model.WeatherApiModels;
 
 namespace WeatherApiTester.Services.WeatherServices
 {
-    public class WeatherServiceVisualCrossing : IGetWeatherData
+    public class WeatherServiceVisualCrossing : IGetWeatherDataSvc
     {
         private static readonly HttpClient client = new HttpClient();
 		public async Task<IWeatherCurrentModel> GetWeatherForecastHourlyAsync()
