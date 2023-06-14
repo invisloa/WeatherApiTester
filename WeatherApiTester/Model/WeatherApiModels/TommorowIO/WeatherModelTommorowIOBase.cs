@@ -8,6 +8,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 {
 	public abstract class WeatherModelTommorowIOBase : IWeatherCurrentModel
 	{
+
 		public class Location
 		{
 			public double lat { get; set; }

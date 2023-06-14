@@ -9,7 +9,9 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
     public class WeatherModelTommorowIOCurrent : WeatherModelTommorowIOBase
 
 	{
-        public Data data { get; set; }
+
+
+		public Data data { get; set; }
         public Location location { get; set; }
         public class Data
         {
@@ -32,7 +34,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double temperature { get; set; }
 			public double temperatureApparent { get; set; }
 			public int uvHealthConcern { get; set; }
-			public int uvIndex { get; set; }
+			public int uvIndex { get; set; }	//0-2: Low	3-5: Moderate	6-7: High	8-10: Very High		11+: Extreme
 			public double visibility { get; set; }
 			public int weatherCode { get; set; }
 			public double windDirection { get; set; }
