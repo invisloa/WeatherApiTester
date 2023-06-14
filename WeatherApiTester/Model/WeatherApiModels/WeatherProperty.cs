@@ -12,7 +12,7 @@ namespace WeatherApiTester.Model.WeatherApiModels
         public string Value { get; set; }
         public bool IsVisible { get; set; }
         public string IconPath { get; set; }
-		public WeatherProperty(string name, string value, bool isVisible, string iconPath) 
+		public WeatherProperty(string name, string value, bool isVisible = true, string iconPath = null) 
         {
             Name = name;
             Value = value;  

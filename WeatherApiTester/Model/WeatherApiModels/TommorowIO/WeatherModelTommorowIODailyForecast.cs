@@ -126,49 +126,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double windSpeedMin { get; set; }
 		}
 
-		public Dictionary<string, object> ExtractLocationFields()
-		{
-			var locationDict = new Dictionary<string, object>
-		{
-			{"lat", this.location.lat},
-			{"lon", this.location.lon},
-			{"name", this.location.name},
-			{"type", this.location.type}
-
-		};
-			return locationDict;
-		}
-		public Dictionary<string, object> ExtractValuesFields(Values values)
-		{
-			return GetPropertiesDictionary(values);
-		}
-
-		private Dictionary<string, object> GetPropertiesDictionary(object obj)
-		{
-			return obj.GetType().GetProperties().ToDictionary(
-				prop => prop.Name,
-				prop => prop.GetValue(obj, null)
-			);
-		}
-		public List<Dictionary<string, object>> ExtractTimelinesFields()
-		{
-			var timelinesList = new List<Dictionary<string, object>>();
-			foreach (var daily in this.timelines.daily)
-			{
-				var dailyDict = new Dictionary<string, object>
-			{
-				{"time", daily.time},
-				{"values", ExtractValuesFields(daily.values)}
-			};
-				timelinesList.Add(dailyDict);
-			}
-			return timelinesList;
-		}
 	}
 }
 
 
-
-
-/*
-*/
