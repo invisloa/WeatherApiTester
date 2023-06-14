@@ -40,55 +40,5 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public double windSpeed { get; set; }
 		}
 
-
-		public Dictionary<string, object> ExtractData()
-		{
-			var dataDict = new Dictionary<string, object>
-			{
-				{"time", data.time},
-				{"values", data.values}
-			};
-			return dataDict;
-		}
-
-		public Dictionary<string, object> ExtractLocation()
-		{
-			var locationDict = new Dictionary<string, object>
-			{
-			{"lat", location.lat},
-			{"lon", location.lon},
-			{"name", location.name},
-			{"type", location.type}
-		};
-			return locationDict;
-		}
-
-		public Dictionary<string, object> ExtractValues()
-		{
-			var valuesDict = new Dictionary<string, object>
-			{
-				{"cloudBase", data.values.cloudBase},
-				{"cloudCeiling", data.values.cloudCeiling},
-				{"cloudCover", data.values.cloudCover},
-				{"dewPoint", data.values.dewPoint},
-				{"freezingRainIntensity", data.values.freezingRainIntensity},
-				{"humidity", data.values.humidity},
-				{"precipitationProbability", data.values.precipitationProbability},
-				{"pressureSurfaceLevel", data.values.pressureSurfaceLevel},
-				{"rainIntensity", data.values.rainIntensity},
-				{"sleetIntensity", data.values.sleetIntensity},
-				{"snowIntensity", data.values.snowIntensity},
-				{"temperature", data.values.temperature},
-				{"temperatureApparent", data.values.temperatureApparent},
-				{"uvHealthConcern", data.values.uvHealthConcern},
-				{"uvIndex", data.values.uvIndex},
-				{"visibility", data.values.visibility},
-				{"weatherCode", data.values.weatherCode},
-				{"windDirection", data.values.windDirection},
-				{"windGust", data.values.windGust},
-				{"windSpeed", data.values.windSpeed}
-			};
-			return valuesDict;
-		}
 	}
 }
