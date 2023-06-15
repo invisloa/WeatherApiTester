@@ -7,7 +7,7 @@
 
 
 #region highLater
-// Make viewmodels for every type of data
+// Make viewmodels for every type of _dataService
 
 #endregion
 
@@ -22,5 +22,5 @@
 
 
 #region done
-// Make model for every method to get data+
+// Make model for every method to get _dataService+
 #endregion

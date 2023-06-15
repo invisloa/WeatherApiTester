@@ -13,7 +13,7 @@ namespace WeatherApiTester.ViewModel.TommoroIO
 
 		protected Dictionary<string, string> _weatherProperties = new Dictionary<string, string>();
 		protected IWeatherCurrentModel _weatherDataModel;
-		protected IGetWeatherDataSvc data = Factory.CreateGetWeatherData;
+		protected IGetWeatherDataSvc _dataService = Factory.CreateGetWeatherData;
 
 	}
 }

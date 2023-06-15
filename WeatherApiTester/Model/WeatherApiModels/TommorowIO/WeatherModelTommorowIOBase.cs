@@ -16,37 +16,50 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public string name { get; set; }
 			public string type { get; set; }
 		}
+		public WeatherProperty LocationGPS { get; set; }
+		public WeatherProperty LocationName { get; set; }
+		public WeatherProperty Time { get; set; }
+		public WeatherProperty Temperature { get; set; }
+		public WeatherProperty TemperatureAparent { get; set; }
+		public WeatherProperty WeatherCode { get; set; }
+		public WeatherProperty PrecipitationProbability { get; set; }
+		public WeatherProperty RainIntensity { get; set; }
+		public WeatherProperty SleetIntensity { get; set; }
+		public WeatherProperty SnowIntensity { get; set; }
+		public WeatherProperty FreezingRainIntensity { get; set; }
+		public WeatherProperty WindSpeed { get; set; }
+		public WeatherProperty PressureSurfaceLevel { get; set; }
 
 		#region Weather Codes
-/*	  
- 	  "weatherCode": {
-      "0": "Unknown",
-      "1000": "Clear, Sunny",
-      "1100": "Mostly Clear",
-      "1101": "Partly Cloudy",
-      "1102": "Mostly Cloudy",
-      "1001": "Cloudy",
-      "2000": "Fog",
-      "2100": "Light Fog",
-      "4000": "Drizzle",
-      "4001": "Rain",
-      "4200": "Light Rain",
-      "4201": "Heavy Rain",
-      "5000": "Snow",
-      "5001": "Flurries",
-      "5100": "Light Snow",
-      "5101": "Heavy Snow",
-      "6000": "Freezing Drizzle",
-      "6001": "Freezing Rain",
-      "6200": "Light Freezing Rain",
-      "6201": "Heavy Freezing Rain",
-      "7000": "Ice Pellets",
-      "7101": "Heavy Ice Pellets",
-      "7102": "Light Ice Pellets",
-      "8000": "Thunderstorm"
-    },
-*/		
-        #endregion
+		/*	  
+			  "weatherCode": {
+			  "0": "Unknown",
+			  "1000": "Clear, Sunny",
+			  "1100": "Mostly Clear",
+			  "1101": "Partly Cloudy",
+			  "1102": "Mostly Cloudy",
+			  "1001": "Cloudy",
+			  "2000": "Fog",
+			  "2100": "Light Fog",
+			  "4000": "Drizzle",
+			  "4001": "Rain",
+			  "4200": "Light Rain",
+			  "4201": "Heavy Rain",
+			  "5000": "Snow",
+			  "5001": "Flurries",
+			  "5100": "Light Snow",
+			  "5101": "Heavy Snow",
+			  "6000": "Freezing Drizzle",
+			  "6001": "Freezing Rain",
+			  "6200": "Light Freezing Rain",
+			  "6201": "Heavy Freezing Rain",
+			  "7000": "Ice Pellets",
+			  "7101": "Heavy Ice Pellets",
+			  "7102": "Light Ice Pellets",
+			  "8000": "Thunderstorm"
+			},
+		*/
+		#endregion
 
 	}
 }
