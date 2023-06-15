@@ -6,5 +6,7 @@ public partial class WeatherCurrent : ContentPage
 	{
 		
 		InitializeComponent();
+		BindingContext = new WeatherApiTester.ViewModel.WeatherCurrentTIO_VM();
+
 	}
 }

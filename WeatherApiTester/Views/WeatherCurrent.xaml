@@ -2,29 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApiTester.Views.WeatherCurrent"
+             xmlns:vm="clr-namespace:WeatherApiTester.ViewModel"
+
              Title="WeatherCurrent" Background="blue" BackgroundColor="AliceBlue">
 
     <StackLayout>
-        <Label Text="{Binding CurrentWeather.data.time}" />
-        <Label Text="{Binding CurrentWeather.data.values.temperature}" />
-        <Label Text="{Binding CurrentWeather.data.values.humidity}" />
-        <Label Text="{Binding CurrentWeather.data.values.cloudBase}" />
-        <Label Text="{Binding CurrentWeather.data.values.cloudCeiling}" />
-        <Label Text="{Binding CurrentWeather.data.values.cloudCover}" />
-        <Label Text="{Binding CurrentWeather.data.values.dewPoint}" />
-        <Label Text="{Binding CurrentWeather.data.values.freezingRainIntensity}" />
-        <Label Text="{Binding CurrentWeather.data.values.precipitationProbability}" />
-        <Label Text="{Binding CurrentWeather.data.values.pressureSurfaceLevel}" />
-        <Label Text="{Binding CurrentWeather.data.values.rainIntensity}" />
-        <Label Text="{Binding CurrentWeather.data.values.sleetIntensity}" />
-        <Label Text="{Binding CurrentWeather.data.values.snowIntensity}" />
-        <Label Text="{Binding CurrentWeather.data.values.temperatureApparent}" />
-        <Label Text="{Binding CurrentWeather.data.values.uvHealthConcern}" />
-        <Label Text="{Binding CurrentWeather.data.values.uvIndex}" />
-        <Label Text="{Binding CurrentWeather.data.values.visibility}" />
-        <Label Text="{Binding CurrentWeather.data.values.weatherCode}" />
-        <Label Text="{Binding CurrentWeather.data.values.windDirection}" />
-        <Label Text="{Binding CurrentWeather.data.values.windGust}" />
-        <Label Text="{Binding CurrentWeather.data.values.windSpeed}" />
+        <Label Text="ASDZXC" />
+        <Label Text="{Binding WindSpeed.Name}" />
     </StackLayout>
 </ContentPage>

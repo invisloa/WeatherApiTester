@@ -11,10 +11,10 @@ namespace WeatherApiTester.Model.WeatherApiModels
 		public WeatherProperty LocationGPS { get; set; }
 		public WeatherProperty LocationName { get; set; }
 		public WeatherProperty Time { get; set; }
-		public WeatherProperty Temperature { get; set; }						//
-		public WeatherProperty TemperatureAparent { get; set; }
-		public WeatherProperty WeatherCode { get; set; }						//
-		public WeatherProperty PrecipitationProbability { get; set; }                       //
+		public WeatherProperty Temperature { get; set; }						
+		public WeatherProperty TemperatureApparent { get; set; }
+		public WeatherProperty WeatherCode { get; set; }						
+		public WeatherProperty PrecipitationProbability { get; set; }                       
 		public WeatherProperty RainIntensity { get; set; }
 		public WeatherProperty SleetIntensity { get; set; }
 		public WeatherProperty SnowIntensity { get; set; }

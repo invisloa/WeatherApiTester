@@ -10,9 +10,6 @@ namespace WeatherApiTester.Services
 {
     public interface IGetWeatherDataSvc
 	{
-		public Task<IWeatherCurrentModel> GetWeatherForecastDailyAsync();				
-		public Task<IWeatherCurrentModel> GetWeatherForecastHourlyAsync();
 		public Task<IWeatherCurrentModel> GetWeatherCurrentAsync();
-		public Task<IWeatherCurrentModel> GetWeatherHistoricAsync();
 	}
 }

@@ -16,19 +16,19 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			public string name { get; set; }
 			public string type { get; set; }
 		}
-		public WeatherProperty LocationGPS { get; set; }
-		public WeatherProperty LocationName { get; set; }
-		public WeatherProperty Time { get; set; }
-		public WeatherProperty Temperature { get; set; }
-		public WeatherProperty TemperatureAparent { get; set; }
-		public WeatherProperty WeatherCode { get; set; }
-		public WeatherProperty PrecipitationProbability { get; set; }
-		public WeatherProperty RainIntensity { get; set; }
-		public WeatherProperty SleetIntensity { get; set; }
-		public WeatherProperty SnowIntensity { get; set; }
-		public WeatherProperty FreezingRainIntensity { get; set; }
-		public WeatherProperty WindSpeed { get; set; }
-		public WeatherProperty PressureSurfaceLevel { get; set; }
+		public virtual WeatherProperty LocationGPS { get; set; }
+		public virtual WeatherProperty LocationName { get; set; }
+		public virtual WeatherProperty Time { get; set; }
+		public virtual WeatherProperty Temperature { get; set; }
+		public virtual WeatherProperty TemperatureApparent { get; set; }
+		public virtual WeatherProperty WeatherCode { get; set; }
+		public virtual WeatherProperty PrecipitationProbability { get; set; }
+		public virtual WeatherProperty RainIntensity { get; set; }
+		public virtual WeatherProperty SleetIntensity { get; set; }
+		public virtual WeatherProperty SnowIntensity { get; set; }
+		public virtual WeatherProperty FreezingRainIntensity { get; set; }
+		public virtual WeatherProperty WindSpeed { get; set; }
+		public virtual WeatherProperty PressureSurfaceLevel { get; set; }
 
 		#region Weather Codes
 		/*	  

@@ -37,27 +37,18 @@ namespace WeatherApiTester.Services.WeatherServices
 			}
 
 			string responseBody = await response.Content.ReadAsStringAsync();
-			return JsonConvert.DeserializeObject<WeatherModelTommorowIODailyForecast>(responseBody);
+			try
+			{
+				WeatherModelTommorowIOCurrent cc = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);
+				return JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);
+			}
+			catch (Exception ex) { await Console.Out.WriteLineAsync("aaa"); }
+			return null;
 		}
 
 		public Task<IWeatherCurrentModel> GetWeatherCurrentAsync()
 		{
-			return SendRequestAsync<WeatherModelTommorowIOCurrent>(CreateUri("realtime"));
-		}
-
-		public Task<IWeatherCurrentModel> GetWeatherForecastDailyAsync()
-		{
-			return SendRequestAsync<WeatherModelTommorowIODailyForecast>(CreateUri("forecast", "&timesteps=1d"));
-		}
-
-		public Task<IWeatherCurrentModel> GetWeatherForecastHourlyAsync()
-		{
-			return SendRequestAsync<WeatherModelTommorowIOHourlyForecast>(CreateUri("forecast", "&timesteps=1h"));
-		}
-
-		public Task<IWeatherCurrentModel> GetWeatherHistoricAsync()
-		{
-			throw new NotImplementedException();
+			return SendRequestAsync<IWeatherCurrentModel>(CreateUri("realtime"));
 		}
 	}
 }

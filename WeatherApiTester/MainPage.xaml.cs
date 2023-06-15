@@ -18,8 +18,7 @@ public partial class MainPage : ContentPage
 	{
 		IWeatherCurrentModel model ;
 		IGetWeatherDataSvc data = Factory.CreateGetWeatherData;
-		model = await data.GetWeatherForecastHourlyAsync();
-		model = await data.GetWeatherForecastDailyAsync();
+		model = await data.GetWeatherCurrentAsync();
 		int x = 2;
 	}
 

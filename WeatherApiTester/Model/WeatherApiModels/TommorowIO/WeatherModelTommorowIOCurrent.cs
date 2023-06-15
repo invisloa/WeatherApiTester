@@ -10,7 +10,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 	{
 		#region Interface Properties
 		private WeatherProperty _temperature;
-		public WeatherProperty Temperature
+		public override WeatherProperty Temperature
 		{
 			get
 			{
@@ -31,7 +31,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			}
 		}
 		private WeatherProperty _weatherCode;
-		public WeatherProperty WeatherCode
+		public override WeatherProperty WeatherCode
 		{
 			get
 			{
@@ -53,7 +53,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 		private WeatherProperty _precipitationProbability;
-		public WeatherProperty PrecipitationProbability
+		public override WeatherProperty PrecipitationProbability
 		{
 			get
 			{
@@ -73,30 +73,33 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 				}
 			}
 		}
-		/*		private WeatherProperty _locationGPS;
-				public WeatherProperty LocationGPS
+		private WeatherProperty _locationGPS;
+		public override WeatherProperty LocationGPS
+		{
+			get
+			{
+				return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", $"{location.lat},{location.lon}"));
+			}
+			set
+			{
+				string[] latAndLon = value.Value.Split(',');
+				if (latAndLon.Length == 2 &&
+					double.TryParse(latAndLon[0], out double latValue) &&
+					double.TryParse(latAndLon[1], out double lonValue))
 				{
-					get
-					{
-						return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", data.values._locationGPS.ToString()));
-					}
-					set
-					{
-						if (int.TryParse(value.Value, out int precipitationProbabilityValue))
-						{
-							data.values.precipitationProbability = precipitationProbabilityValue;
-							_precipitationProbability = value;
-						}
-						else
-						{
-							// Handle the case when parsing fails
-							throw new ArgumentException("Invalid precipitation probability value.");
-						}
-					}
+					location.lat = latValue;
+					location.lon = lonValue;
+					_locationGPS = value;
 				}
-		*/
+				else
+				{
+					// Handle the case when parsing fails
+					throw new ArgumentException("Invalid GPS location value.");
+				}
+			}
+		}
 		private WeatherProperty _locationName;
-		public WeatherProperty LocationName
+		public override WeatherProperty LocationName
 		{
 			get
 			{
@@ -117,7 +120,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			}
 		}
 		private WeatherProperty _time;
-		public WeatherProperty Time
+		public override WeatherProperty Time
 		{
 			get
 			{
@@ -136,29 +139,29 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 				}
 			}
 		}
-		private WeatherProperty _temperatureAparent;
-		public WeatherProperty TemperatureAparent
+		private WeatherProperty _temperatureApparent;
+		public override WeatherProperty TemperatureApparent
 		{
 			get
 			{
-				return _temperatureAparent ?? (_temperatureAparent = new WeatherProperty("TemperatureAparent", data.values.temperatureAparent.ToString()));
+				return _temperatureApparent ?? (_temperatureApparent = new WeatherProperty("TemperatureApparent", data.values.temperatureApparent.ToString()));
 			}
 			set
 			{
-				if (double.TryParse(value.Value, out double temperatureAparentValue))
+				if (double.TryParse(value.Value, out double temperatureApparentValue))
 				{
-					data.values.temperatureAparent = temperatureAparentValue;
-					_temperatureAparent = value;
+					data.values.temperatureApparent = temperatureApparentValue;
+					_temperatureApparent = value;
 				}
 				else
 				{
 					// Handle the case when parsing fails
-					throw new ArgumentException("Invalid TemperatureAparent value.");
+					throw new ArgumentException("Invalid TemperatureApparent value.");
 				}
 			}
 		}
 		private WeatherProperty _rainIntensity;
-		public WeatherProperty RainIntensity
+		public override WeatherProperty RainIntensity
 		{
 			get
 			{
@@ -179,7 +182,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 			}
 		}
 		private WeatherProperty _sleetIntensity;
-		public WeatherProperty SleetIntensity
+		public override WeatherProperty SleetIntensity
 		{
 			get
 			{
@@ -201,7 +204,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 		private WeatherProperty _snowIntensity;
-		public WeatherProperty SnowIntensity
+		public override WeatherProperty SnowIntensity
 		{
 			get
 			{
@@ -223,7 +226,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 		private WeatherProperty _freezingRainIntensity;
-		public WeatherProperty FreezingRainIntensity
+		public override WeatherProperty FreezingRainIntensity
 		{
 			get
 			{
@@ -245,7 +248,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 		private WeatherProperty _windSpeed;
-		public WeatherProperty WindSpeed
+		public override WeatherProperty WindSpeed
 		{
 			get
 			{
@@ -267,7 +270,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		}
 
 		private WeatherProperty _pressureSurfaceLevel;
-		public WeatherProperty PressureSurfaceLevel
+		public override WeatherProperty PressureSurfaceLevel
 		{
 			get
 			{
@@ -300,26 +303,26 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
         }
 		public class Values
 		{
-			public double cloudBase { get; set; }
-			public double cloudCeiling { get; set; }
-			public int cloudCover { get; set; }
-			public double dewPoint { get; set; }
-			public int freezingRainIntensity { get; set; }
-			public int humidity { get; set; }
-			public int precipitationProbability { get; set; }
-			public double pressureSurfaceLevel { get; set; }
-			public int rainIntensity { get; set; }
-			public int sleetIntensity { get; set; }
-			public int snowIntensity { get; set; }
-			public double temperature { get; set; }
-			public double temperatureAparent { get; set; }
-			public int uvHealthConcern { get; set; }
-			public int uvIndex { get; set; }	//0-2: Low	3-5: Moderate	6-7: High	8-10: Very High		11+: Extreme
-			public double visibility { get; set; }
-			public int weatherCode { get; set; }
-			public double windDirection { get; set; }
-			public double windGust { get; set; }
-			public double windSpeed { get; set; }
+			public double? cloudBase { get; set; }
+			public double? cloudCeiling { get; set; }
+			public int? cloudCover { get; set; }
+			public double? dewPoint { get; set; }
+			public int? freezingRainIntensity { get; set; }
+			public int? humidity { get; set; }
+			public int? precipitationProbability { get; set; }
+			public double? pressureSurfaceLevel { get; set; }
+			public int? rainIntensity { get; set; }
+			public int? sleetIntensity { get; set; }
+			public int? snowIntensity { get; set; }
+			public double? temperature { get; set; }
+			public double? temperatureApparent { get; set; }
+			public int? uvHealthConcern { get; set; }
+			public int? uvIndex { get; set; }	//0-2: Low	3-5: Moderate	6-7: High	8-10: Very High		11+: Extreme
+			public double? visibility { get; set; }
+			public int? weatherCode { get; set; }
+			public double? windDirection { get; set; }
+			public double? windGust { get; set; }
+			public double? windSpeed { get; set; }
 		}
 
 
