@@ -49,8 +49,8 @@ namespace WeatherApiTester.ViewModel
 		public WeatherCurrentTIO_VM()
 		{
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
-			GetCurrentWeather();                                                    // get weather _dataService at construction phase
 		}
+
 		private async void GetCurrentWeather()
 		{
 			WeatherData = await _dataService.GetWeatherCurrentAsync();
