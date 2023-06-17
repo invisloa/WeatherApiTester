@@ -24,11 +24,19 @@ namespace WeatherApiTester.Services.WeatherServices
 		{
 			return new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}");
 		}
+		static async Task SendRequestAsync(Uri uri)
+		{
+			HttpResponseMessage response;
+			using (HttpClient client = new HttpClient())
+			{
+				response = await client.GetAsync(uri);
+			}
+		}
 
 		private async Task<IWeatherCurrentModel> SendRequestAsync<T>(Uri uri)
 		{
 			HttpResponseMessage response;
-
+			await SendRequestAsync(new Uri("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp"));
 			try
 			{
 				response = await client.GetAsync("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp");
