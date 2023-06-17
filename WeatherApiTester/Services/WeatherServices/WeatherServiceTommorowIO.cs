@@ -1,10 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using WeatherApiTester.Model.WeatherApiModels;
 using WeatherApiTester.Model.WeatherApiModels.TommorowIO;
 
@@ -14,7 +11,7 @@ namespace WeatherApiTester.Services.WeatherServices
 	{
 		private static readonly HttpClient client = new HttpClient();
 		private const string _myApiKey = "Cj66O8OLTih8hPqA7AOKfevJuX11N1hp";
-		private const string _location = "Warszawa";
+		private const string _location = "43.70,-79.42";
 		IWeatherCurrentModel weatherCurrentModel = Factory.CreateWeatherCurrentDataModel;
 
 		static WeatherServiceTommorowIO()
@@ -23,19 +20,18 @@ namespace WeatherApiTester.Services.WeatherServices
 			client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 		}
 
-		private Uri CreateUri(string endpoint, string parameters = "")
+		private Uri CreateUri(string endpoint)
 		{
-			return new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}{parameters}");
+			return new Uri($"https://api.tomorrow.io/v4/weather/{endpoint}?location={_location}&apikey={_myApiKey}");
 		}
 
 		private async Task<IWeatherCurrentModel> SendRequestAsync<T>(Uri uri)
 		{
 			HttpResponseMessage response;
-			System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
 			try
 			{
-				response = await client.GetAsync(uri);
+				response = await client.GetAsync("https://api.tomorrow.io/v4/weather/realtime?location=toronto&apikey=Cj66O8OLTih8hPqA7AOKfevJuX11N1hp");
 			}
 			catch (Exception ex)
 			{
