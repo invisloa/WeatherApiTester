@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
@@ -11,10 +12,15 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 
 		public class Location
 		{
-			public double lat { get; set; }
-			public double lon { get; set; }
-			public string name { get; set; }
-			public string type { get; set; }
+
+			[JsonPropertyName("lat")]
+			public double Latitude { get; set; }
+			[JsonPropertyName("lon")]
+			public double Longitude { get; set; }
+			[JsonPropertyName("name")]
+			public string LocationName { get; set; }
+			[JsonPropertyName("type")]
+			public string LocationType { get; set; }
 		}
 		public virtual WeatherProperty LocationGPS { get; set; }
 		public virtual WeatherProperty LocationName { get; set; }

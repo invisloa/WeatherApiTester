@@ -78,7 +78,7 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		{
 			get
 			{
-				return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", $"{location.lat},{location.lon}"));
+				return _locationGPS ?? (_locationGPS = new WeatherProperty("LocationGPS", $"{location.Latitude},{location.Longitude}"));
 			}
 			set
 			{
@@ -87,8 +87,8 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 					double.TryParse(latAndLon[0], out double latValue) &&
 					double.TryParse(latAndLon[1], out double lonValue))
 				{
-					location.lat = latValue;
-					location.lon = lonValue;
+					location.Latitude = latValue;
+					location.Longitude = lonValue;
 					_locationGPS = value;
 				}
 				else
@@ -103,13 +103,13 @@ namespace WeatherApiTester.Model.WeatherApiModels.TommorowIO
 		{
 			get
 			{
-				return _locationName ?? (_locationName = new WeatherProperty("LocationName", location.name));
+				return _locationName ?? (_locationName = new WeatherProperty("LocationName", location.LocationName));
 			}
 			set
 			{
 				if (!string.IsNullOrEmpty(value.Value))
 				{
-					location.name = value.Value;
+					location.LocationName = value.Value;
 					_locationName = value;
 				}
 				else
