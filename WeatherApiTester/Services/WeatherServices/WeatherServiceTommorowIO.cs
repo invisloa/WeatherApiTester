@@ -15,6 +15,7 @@ namespace WeatherApiTester.Services.WeatherServices
 		private static readonly HttpClient client = new HttpClient();
 		private const string _myApiKey = "Cj66O8OLTih8hPqA7AOKfevJuX11N1hp";
 		private const string _location = "Warszawa";
+		IWeatherCurrentModel weatherCurrentModel = Factory.CreateWeatherCurrentDataModel;
 
 		static WeatherServiceTommorowIO()
 		{
@@ -29,7 +30,18 @@ namespace WeatherApiTester.Services.WeatherServices
 
 		private async Task<IWeatherCurrentModel> SendRequestAsync<T>(Uri uri)
 		{
-			HttpResponseMessage response = await client.GetAsync(uri);
+			HttpResponseMessage response;
+			System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+			try
+			{
+				response = await client.GetAsync(uri);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"An error occurred: {ex.Message}");
+				throw;
+			}
 
 			if (!response.IsSuccessStatusCode)
 			{
@@ -39,10 +51,10 @@ namespace WeatherApiTester.Services.WeatherServices
 			string responseBody = await response.Content.ReadAsStringAsync();
 			try
 			{
-				WeatherModelTommorowIOCurrent cc = JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);
-				return JsonConvert.DeserializeObject<WeatherModelTommorowIOCurrent>(responseBody);
+				weatherCurrentModel = JsonConvert.DeserializeObject<IWeatherCurrentModel>(responseBody);
+				return weatherCurrentModel;
 			}
-			catch (Exception ex) { await Console.Out.WriteLineAsync("aaa"); }
+			catch (Exception ex) { await Console.Out.WriteLineAsync($"{ex}"); }
 			return null;
 		}
 

@@ -48,7 +48,12 @@ namespace WeatherApiTester.ViewModel
 
 		public WeatherCurrentTIO_VM()
 		{
+			WeatherData = Factory.CreateWeatherCurrentDataModel;
+			IGetWeatherDataSvc _currentWeatherService = Factory.GetCurrentWeatherService;
+			WeatherData = _currentWeatherService.GetWeatherCurrentAsync().Result;
+
 			GetCurrentWeatherCommand = new RelayCommand(GetCurrentWeather);
+			GetCurrentWeather();
 		}
 
 		private async void GetCurrentWeather()

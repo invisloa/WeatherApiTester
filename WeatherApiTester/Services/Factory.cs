@@ -15,5 +15,6 @@ namespace WeatherApiTester.Services
 
 		public static IWeatherCurrentModel CreateWeatherCurrentDataModel => new WeatherModelTommorowIOCurrent();
 
+		public static IGetWeatherDataSvc GetCurrentWeatherService => new WeatherServiceTommorowIO();
 	}
 }
